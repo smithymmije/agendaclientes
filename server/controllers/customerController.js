@@ -13,7 +13,7 @@ exports.homepage = async (req, res) => {
 
     const locals = {
         title: 'NodeJs',
-        description: 'Free NodeJs User Management System'
+        description: 'Sistema de gerenciamento de usuários em NodeJs'
     }
 
     let perPage = 8;
@@ -62,8 +62,8 @@ exports.homepage = async (req, res) => {
  */
 exports.about = async (req, res) => {
     const locals = {
-        title: 'About',
-        description: 'Free NodeJs User Management System'
+        title: 'Sobre',
+        description: 'Sistema de gerenciamento de usuários em NodeJs'
     }
 
     try {
@@ -80,8 +80,8 @@ exports.about = async (req, res) => {
  */
 exports.addCustomer = async (req, res) => {
     const locals = {
-        title: 'Add New Customer - NodeJs',
-        description: 'Free NodeJs User Management System'
+        title: 'Add Novo Cliente - NodeJs',
+        description: 'Sistema de gerenciamento de usuários em NodeJs'
     }
     res.render('customer/add', locals);
 }
@@ -103,7 +103,7 @@ exports.postCustomer = async (req, res) => {
 
     try {
         await Customer.create(newCustomer);
-        await req.flash('info', 'New customer has been added.')
+        await req.flash('info', 'Novo cliente adicionado com sucesso.')
         res.redirect('/');    
     } catch (error) {
         console.log(error);
@@ -122,8 +122,8 @@ exports.view = async (req, res) => {
         const customer = await Customer.findOne({ _id: req.params.id })
 
         const locals = {
-            title: "View Customer Data",
-            description: "Free NodeJs User Management System",
+            title: "Visualizar Informações do Cliente",
+            description: "Sistema de gerenciamento de usuários em NodeJs",
         };
 
         res.render('customer/view', {
@@ -146,8 +146,8 @@ exports.edit = async (req, res) => {
         const customer = await Customer.findOne({ _id: req.params.id })
 
         const locals = {
-            title: "View Customer Edit",
-            description: "Free NodeJs User Management System",
+            title: "Editar Informações do Cliente",
+            description: "Sistema de gerenciamento de usuários em NodeJs",
         };
 
         res.render('customer/edit', {
@@ -212,8 +212,8 @@ exports.deleteCustomer = async (req, res) => {
 exports.searchCustomers = async (req, res) => {
 
     const locals = {
-        title: "Search Customer Data",
-        description: "Free NodeJs User Management System"
+        title: "Pesquisar Cliente",
+        description: "Sistema de gerenciamento de usuários em NodeJs"
       };
       
 

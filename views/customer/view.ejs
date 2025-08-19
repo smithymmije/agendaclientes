@@ -4,8 +4,8 @@
     <h1 class="h2"><%= customer.firstName %> <%=customer.lastName %></h1>
     <div class="btn-toolbar mb-2 mb-md-0">
       <div class="btn-group me-2">
-        <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-        <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+        <button type="button" class="btn btn-sm btn-outline-secondary">Copiar</button>
+        <button type="button" class="btn btn-sm btn-outline-secondary">Exportar</button>
       </div>
     </div>
   </div>
@@ -15,14 +15,14 @@
       <div class="col">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="/">Painel de Controle</a></li>
             <li class="breadcrumb-item active"><%= customer.firstName %></li>
           </ol>
         </nav>
       </div>
       <div class="col text-end fw-lighter">
         <b>Atualizado em <%= new Date(customer.updateAt).toLocaleString("pt-BR") %></b>
-        <b>UserId:</b> <%= customer._id %>
+        <b>Identificação do Cliente:</b> <%= customer._id %>
       </div>
    
     </div>
@@ -32,21 +32,21 @@
   <ul class="list-group">
     <li class="list-group-item">
       <div class="row">
-        <div class="col" style="max-width: 140px"><b>Name:</b></div>
+        <div class="col" style="max-width: 140px"><b>Nome:</b></div>
         <div class="col"><%= customer.firstName %> <%= customer.lastName %></div>
       </div>
     </li>
 
     <li class="list-group-item">
         <div class="row">
-          <div class="col" style="max-width: 140px"><b>Tel:</b></div>
+          <div class="col" style="max-width: 140px"><b>Telefone:</b></div>
           <div class="col"><%= customer.tel %></div>
         </div>
       </li>
     
       <li class="list-group-item">
         <div class="row">
-          <div class="col" style="max-width: 140px"><b>Email:</b></div>
+          <div class="col" style="max-width: 140px"><b>E-mail:</b></div>
           <div class="col"><%= customer.email %></div>
         </div>
       </li>
@@ -60,14 +60,14 @@
 
       <li class="list-group-item">
         <div class="row">
-          <div class="col" style="max-width: 140px"><b>Data Created:</b></div>
+          <div class="col" style="max-width: 140px"><b>Data de Criação:</b></div>
           <div class="col"><%= new Date(customer.createdAt).toLocaleString("pt-BR") %></div>
         </div>
       </li>
 
       <li class="list-group-item">
         <div class="row">
-          <div class="col" style="max-width: 140px"><b>Data Modified:</b></div>
+          <div class="col" style="max-width: 140px"><b>Data de Modificação:</b></div>
           <div class="col"><%= new Date(customer.updateAt).toLocaleString("pt-BR") %></div>
         </div>
       </li>
