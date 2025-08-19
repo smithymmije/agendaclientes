@@ -1,4 +1,4 @@
-const customer = require('../models/customer');
+/*const customer = require('../models/customer');*/
 const Customer = require('../models/customer');
 const mongoose = require('mongoose');
 
