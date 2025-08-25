@@ -1,22 +1,25 @@
 const express = require('express');
 const router = express.Router();
+
 const customerController = require('../controllers/customerController');
+const authController = require('../controllers/authController');
+const authMiddleware = require('../middleware/authMiddleware');
 
-/**
- * Customer Routes
- */
-router.get('/', customerController.homepage);
-router.get('/about', customerController.about);
-router.get('/add', customerController.addCustomer);
-router.post('/add', customerController.postCustomer);
+router.get('/', authMiddleware, customerController.homepage);
+router.get('/about', authMiddleware, customerController.about);
+router.get('/add', authMiddleware, customerController.addCustomer);
+router.post('/add', authMiddleware, customerController.postCustomer);
 
-router.get('/view/:id', customerController.view);
-router.get('/edit/:id', customerController.edit);
-router.put('/edit/:id', customerController.editPost);
-router.delete('/edit/:id', customerController.deleteCustomer);
+router.get('/view/:id', authMiddleware, customerController.view);
+router.get('/edit/:id', authMiddleware, customerController.edit);
+router.put('/edit/:id', authMiddleware, customerController.editPost);
+router.delete('/edit/:id', authMiddleware, customerController.deleteCustomer);
 
-router.post('/search', customerController.searchCustomers);
+router.post('/search', authMiddleware, customerController.searchCustomers);
 
-
+router.get('/login', authController.getLogin);
+router.post('/login', authController.postLogin);
+router.get('/logout', authController.logout);
+router.post('/register', authController.register);
 
 module.exports = router;
