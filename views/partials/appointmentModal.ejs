@@ -1,0 +1,46 @@
+<!-- Modal de Agendamento -->
+<div class="modal fade" id="modalAppt" tabindex="-1">
+    <div class="modal-dialog">
+      <form id="formAppt">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Novo Agendamento</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <input type="hidden" id="_id" name="_id">
+            <div class="mb-2"><input class="form-control" name="clientName" placeholder="Nome cliente" required></div>
+            <div class="mb-2"><input class="form-control" name="phone" placeholder="Telefone" required></div>
+            <div class="mb-2"><input class="form-control" name="email" type="email" placeholder="E-mail"></div>
+            <div class="mb-2">
+              <select class="form-select" name="service" required>
+                <option value="">Escolha o serviço</option>
+                <option>Corte Feminino</option>
+                <option>Corte Masculino</option>
+                <option>Manicure</option>
+                <option>Pedicure</option>
+                <option>Coloração</option>
+              </select>
+            </div>
+            <div class="mb-2">
+              <select class="form-select" name="professional" required>
+                <option value="">Profissional</option>
+                <option>Joana</option>
+                <option>Márcia</option>
+                <option>Lucas</option>
+              </select>
+            </div>
+            <div class="row">
+              <div class="col"><input class="form-control" name="date" type="date" required></div>
+              <div class="col"><input class="form-control" name="time" type="time" required></div>
+            </div>
+            <textarea class="form-control mt-2" name="notes" placeholder="Observações"></textarea>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Salvar</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>

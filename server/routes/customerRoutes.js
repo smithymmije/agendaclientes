@@ -17,6 +17,12 @@ router.delete('/edit/:id', authMiddleware, customerController.deleteCustomer);
 
 router.post('/search', authMiddleware, customerController.searchCustomers);
 
+// ----------  NOVA ROTA DO MODAL  ----------
+router.post('/appointments', customerController.createAppointment);
+// rotas de agendamento
+router.post('/appointments', customerController.createAppointment);
+router.get('/appointments/json', customerController.getAppointmentsJson); // <-- novo
+
 router.get('/login', authController.getLogin);
 router.post('/login', authController.postLogin);
 router.get('/logout', authController.logout);

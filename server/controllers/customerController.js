@@ -240,4 +240,41 @@ exports.searchCustomers = async (req, res) => {
     }
   };
   
+/**
+ * POST /appointments
+ * Cria agendamento vindo do modal
+ */
+exports.createAppointment = async (req, res) => {
+    try {
+      // Remove _id vazio para evitar erro de cast
+      if (!req.body._id) delete req.body._id;
   
+      console.log('[APPOINTMENT BODY]', req.body);
+      await Customer.create(req.body);
+      res.json({ ok: true });
+    } catch (e) {
+      console.error('[APPOINTMENT ERROR]', e);
+      res.status(400).json({ error: e.message });
+    }
+  };
+
+ /**
+ * GET /appointments/json
+ * Devolve eventos para o FullCalendar
+ */
+ exports.getAppointmentsJson = async (req, res) => {
+    try {
+      const data = await Customer.find({ date: { $exists: true } }, '-__v').lean();
+      const events = data.map(a => ({
+        id    : a._id,
+        title : `${a.clientName} - ${a.service}`,
+        start : `${a.date.toISOString().slice(0,10)}T${a.time}:00`,   // segundos OK
+        end   : `${a.date.toISOString().slice(0,10)}T${a.time}:00`,
+        color : a.status === 'confirmado' ? '#28a745' :
+                a.status === 'cancelado'  ? '#dc3545' : '#007bff'
+      }));
+      res.json(events);
+    } catch (e) {
+      res.status(500).json({ error: e.message });
+    }
+  };
